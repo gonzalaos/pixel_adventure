@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qgu2xup4ewfm"]
+
+[ext_resource type="PackedScene" uid="uid://hqmc2g6xo0wq" path="res://scenes/terrain_level_1.tscn" id="1_bswci"]
+[ext_resource type="PackedScene" uid="uid://dqyy06nfhi2q7" path="res://scenes/player.tscn" id="2_rus8k"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TerrainLevel1" parent="." instance=ExtResource("1_bswci")]
+
+[node name="Player" parent="." instance=ExtResource("2_rus8k")]
+position = Vector2(76, 209)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2.5, 2.5)
