@@ -8,7 +8,8 @@
 [node name="TerrainLevel1" parent="." instance=ExtResource("1_bswci")]
 
 [node name="Player" parent="." instance=ExtResource("2_rus8k")]
-position = Vector2(76, 209)
+position = Vector2(74, 145)
+double_jump_force = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

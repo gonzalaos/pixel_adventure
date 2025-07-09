@@ -4,9 +4,12 @@ class_name Player
 
 const GRAVITY: float = 1000.0
 
-#region Variables
+#region Variables and checks
 @export var run_speed: float
 @export var jump_force: float
+@export var double_jump_force: float
+
+var can_double_jump
 #endregion
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -53,3 +56,6 @@ func flip(input_horizontal: float) -> void:
 
 func is_blocked() -> bool:
 	return wall_check.is_colliding()
+
+func falling() -> bool:
+	return velocity.y >= 0	
