@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqyy06nfhi2q7"]
+[gd_scene load_steps=46 format=3 uid="uid://dqyy06nfhi2q7"]
 
 [ext_resource type="Texture2D" uid="uid://brhka2db1q40h" path="res://sprites/main_characters/ninja_frog/idle_(32x32).png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bti5pwvhypnni" path="res://scripts/player/player.gd" id="2_g2els"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgdubf3dqsuxi" path="res://sprites/main_characters/ninja_frog/jump_(32x32).png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bmqfpi65levk" path="res://sprites/main_characters/ninja_frog/fall_(32x32).png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://c7pf0fhdq3whu" path="res://sprites/main_characters/ninja_frog/run_(32x32).png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bdme1mgk6d8p5" path="res://sprites/main_characters/ninja_frog/wall_jump_(32x32).png" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
 atlas = ExtResource("2_tuyoq")
@@ -131,6 +132,26 @@ region = Rect2(320, 0, 32, 32)
 atlas = ExtResource("3_qhqgy")
 region = Rect2(352, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("7_fjrip")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("7_fjrip")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("7_fjrip")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("7_fjrip")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("7_fjrip")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
 "frames": [{
@@ -250,15 +271,36 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}],
+"loop": true,
+"name": &"wall_slide",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
-size = Vector2(20, 26)
+size = Vector2(16, 26)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("2_g2els")
 run_speed = 150.0
 jump_force = 300.0
+double_jump_force = 260.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u8vuu")
@@ -270,4 +312,4 @@ shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="WallCheck" type="RayCast2D" parent="."]
 position = Vector2(0, 4)
-target_position = Vector2(10.5, 0)
+target_position = Vector2(11, 0)

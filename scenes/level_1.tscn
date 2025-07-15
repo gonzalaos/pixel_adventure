@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://qgu2xup4ewfm"]
+[gd_scene load_steps=6 format=3 uid="uid://qgu2xup4ewfm"]
 
 [ext_resource type="PackedScene" uid="uid://hqmc2g6xo0wq" path="res://scenes/terrain_level_1.tscn" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://dqyy06nfhi2q7" path="res://scenes/player.tscn" id="2_rus8k"]
+[ext_resource type="Texture2D" uid="uid://mww5g77sge1e" path="res://sprites/ui/mobile_buttons/3.png" id="3_4nkto"]
+[ext_resource type="Texture2D" uid="uid://dv3nkj3uekjjx" path="res://sprites/ui/mobile_buttons/4.png" id="4_fcfvj"]
+[ext_resource type="Texture2D" uid="uid://dlhq3op04jql6" path="res://sprites/ui/mobile_buttons/2.png" id="5_pa8r4"]
 
 [node name="Level1" type="Node2D"]
 
@@ -9,8 +12,28 @@
 
 [node name="Player" parent="." instance=ExtResource("2_rus8k")]
 position = Vector2(74, 145)
-double_jump_force = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(70, 250)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_4nkto")
+action = "move_left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(128, 250)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_fcfvj")
+action = "move_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(458, 250)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_pa8r4")
+action = "jump"
